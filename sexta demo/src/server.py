@@ -8,11 +8,12 @@ usersTable = dynamodb2.Table('test-microservices');
 
 @server.route("/", methods = ['GET', 'POST', 'DELETE'])
 def hello():
+    print(request.form)
     usersTable.put_item(
             Item={
-                'id':  request.form.id,
-                'nombre':   request.form.nombre,
-                'whatsapp': request.form.whatsapp,
+                'id':  request.form['id'],
+                'nombre':   request.form['nombre'],
+                'whatsapp': request.form['whatsapp'],
             })
 
     return request.form
