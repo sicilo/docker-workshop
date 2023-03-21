@@ -3,7 +3,7 @@ from flask import request
 import boto3
 server = Flask(__name__)
 
-dynamodb2 = boto3.resource('dynamodb')
+dynamodb2 = boto3.resource('dynamodb', region_name='us-east-2')
 usersTable = dynamodb2.Table('test-microservices');
 
 @server.route("/", methods = ['GET', 'POST', 'DELETE'])
