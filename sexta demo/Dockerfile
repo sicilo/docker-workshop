@@ -13,9 +13,6 @@ RUN pip install -r requirements.txt
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
 RUN ./aws/install
-ARG AWS_ACCESS_KEY_ID=AKIAURNT75V5ZRPNRFVY
-ARG AWS_SECRET_ACCESS_KEY=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
-ARG AWS_REGION=us-east-2
 
 # copy the content of the local src directory to the working directory
 COPY src/ .
