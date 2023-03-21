@@ -1,9 +1,10 @@
 from flask import Flask
+from flask import request
 server = Flask(__name__)
 
-@server.route("/")
+@server.route("/", methods = ['GET', 'POST', 'DELETE'])
 def hello():
-    return {'campo1': 'resultado', 'campo2': 'resultado2'}
+    return request.form
 
 if __name__ == "__main__":
    server.run(host='0.0.0.0')
