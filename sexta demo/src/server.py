@@ -1,9 +1,20 @@
 from flask import Flask
 from flask import request
+import boto3
 server = Flask(__name__)
+
+dynamodb2 = boto3.resource('dynamodb')
+usersTable = dynamodb2.Table('test-microservices');
 
 @server.route("/", methods = ['GET', 'POST', 'DELETE'])
 def hello():
+    usersTable.put_item(
+            Item={
+                'id':  request.form.id,
+                'nombre':   request.form.nombre,
+                'whatsapp': request.form.whatsapp,
+            })
+
     return request.form
 
 if __name__ == "__main__":
