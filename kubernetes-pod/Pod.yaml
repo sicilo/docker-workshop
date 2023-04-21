@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: cmm-notes-pod
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.14.2
+  - name: cmm-notes-page-pod
+    image: notes-page
     ports:
     - containerPort: 80
