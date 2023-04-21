@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cmm-deployment
+  labels:
+    app: cmm-dpmt
+spec:
+  replicas: 3 
+  selector:
+    matchLabels:
+      app: cmm-dpmt
+  template:
+    metadata:
+      labels:
+        app: cmm-dpmt
+    spec:
+      containers:
+      - name: cmm-notes-page-pod-ecr-dpmt
+        image: 312299482491.dkr.ecr.us-east-2.amazonaws.com/cmm-ecr:latest
+        ports:
+        - containerPort: 80
