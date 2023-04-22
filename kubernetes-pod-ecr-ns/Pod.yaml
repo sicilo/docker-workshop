@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cmm-notes-pod-ecr
+  namespace: cmm-ns-web-app
+spec:
+  containers:
+  - name: cmm-notes-page-pod-ecr
+    image: 312299482491.dkr.ecr.us-east-2.amazonaws.com/cmm-ecr:latest
+    ports:
+    - containerPort: 80
